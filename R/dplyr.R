@@ -53,7 +53,7 @@ format.CKANConnection <- function(con, ...) {
 }
 
 #' @export
-#' @importFrom dbplyr base_agg build_sql
+#' @importFrom dbplyr base_agg build_sql sql_translation
 sql_translation.CKANConnection <- function(con) {
   sql_variant(
     base_scalar,
