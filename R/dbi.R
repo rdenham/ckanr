@@ -4,6 +4,11 @@
 
 ## DBI Interface
 
+#' @importFrom dbplyr dbplyr_edition
+#' @export
+dbplyr_edition.CKANConnection <- function(con) 2L
+# Class: CKANDriver
+
 setClass("CKANDriver", representation("DBIDriver"))
 
 setMethod("dbUnloadDriver", "CKANDriver",
@@ -133,10 +138,6 @@ setMethod("dbGetInfo", "CKANConnection",
           def = function(dbObj, ...) {
             cat(sprintf("url: %s\n", dbObj@url))
           }
-          )
-
-setMethod("dbListResults", "CKANConnection",
-          def = function(conn, ...) dbGetInfo(conn, "rsId")[[1]]
           )
 
 setMethod("summary", "CKANConnection",
